@@ -29,6 +29,15 @@ let state = {
 
 // ------------------------------------------------------- Functions
 
+// returns the URL param passed for the key
+function getURLParam(k) {
+	var p = {};
+	location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (s, k, v) {
+		p[k] = v;
+	});
+	return k ? p[k] : p;
+}
+
 // to init the elements inside the add element config modal
 // works based on the state.add_element_config
 function initAddElementConfigModal() {
@@ -178,16 +187,18 @@ $("#element_input_save").on("click", function (e) {
 		data_to_send["css_config"][element.name] = element.checked;
 	});
 
+	// same page request
 	$.ajax({
-		url: "demo_test.txt",
 		data: data_to_send,
 		type: "POST",
 		contentType: "application/json",
 		beforeSend: function (_) {
+			data_to_send["page_id"] = getURLParam("view");
 			console.log(data_to_send);
 		},
 		success: function (result) {
 			alert(result, "success response");
+			window.location.reload();
 		},
 	});
 });

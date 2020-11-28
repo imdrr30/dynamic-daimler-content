@@ -4,7 +4,7 @@
 const ELEMENT_CONFIG = {
 	title_header: {
 		html: `
-		<div class="d-block text-center title_header">
+		<div class="d-block text-center element_config title_header {css_classes}">
 			<h2>{heading}</h2>
 			<h5>{sub_heading}</h5>
 		</div>
@@ -67,6 +67,50 @@ function initAddElementConfigModal() {
 	});
 }
 
+// to render the page with the data from the BE
+// this data is the saved components in the BE
+function initPageWithSavedComponents() {
+	let main_saved_contents = $("#main_saved_contents");
+
+	$.each(saved_elements_data, function (index, saved_config) {
+		let code = saved_config["code"];
+		let element_config = ELEMENT_CONFIG[code];
+		let html = element_config["html"];
+
+		// replace html values
+		$.each(saved_config["values"], function (data_name, data_value) {
+			html = html.replace(`{${data_name}}`, data_value);
+		});
+
+		// init the actions
+		let action_tab = $(`<div class="d-flex justify-content-end"></div>`);
+		action_tab.append(
+			$(`<button class="btn btn-warning mr-2">Edit</button>`).on(
+				"click",
+				function () {
+					alert(index);
+				}
+			)
+		);
+		action_tab.append(
+			$(`<button class="btn btn-danger">Delete</button>`).on(
+				"click",
+				function () {
+					alert(index);
+				}
+			)
+		);
+
+		// action tab | edit | delete
+		main_saved_contents.append(action_tab);
+
+		// add formed content to container
+		main_saved_contents.append(
+			$(html).attr("id", `${code}__${saved_config["id"]}`)
+		);
+	});
+}
+
 // To init all the event listeners in the app
 function initEventListeners() {
 	$(".elements_menu_button").click(function (event) {
@@ -118,9 +162,6 @@ $("#element_input_modal").on("hide.bs.modal", function (e) {
 
 // On element config input model saved | save button for input input
 $("#element_input_save").on("click", function (e) {
-	// TODO: send data to BE
-	$("#element_input_form .text_input");
-
 	let data_to_send = {
 		values: {},
 		css_config: {},
@@ -142,6 +183,9 @@ $("#element_input_save").on("click", function (e) {
 		data: data_to_send,
 		type: "POST",
 		contentType: "application/json",
+		beforeSend: function (_) {
+			console.log(data_to_send);
+		},
 		success: function (result) {
 			alert(result, "success response");
 		},
@@ -160,4 +204,5 @@ $.each(ELEMENT_CONFIG, function (element_key, element_config) {
 	elements_menu_holder.append(menu_button);
 });
 
+initPageWithSavedComponents();
 initEventListeners();

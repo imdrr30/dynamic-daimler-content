@@ -17,10 +17,7 @@
 	<div class="container">
 		<!-- main content area -->
 
-		<!-- TODO: temp content -->
-		<div class="d-block text-center title_header">
-			<h2>{heading}</h2>
-			<h5>{sub_heading}</h5>
+		<div id="main_saved_contents">
 		</div>
 
 		<!-- line just to diff -->
@@ -58,6 +55,22 @@
 
 
 	<!-- app scripts -->
+	<script>
+		// this data is loaded from the BE on page render
+		let saved_elements_data = [{
+			code: "title_header",
+			id: "1",
+			css_config: {
+				center_align: true,
+				left_align: true
+			},
+			values: {
+				heading: "temp heading",
+				sub_heading: "temp sub heading"
+			}
+		}]
+
+	</script>
 	<script src="./assets/js/jquery-3.5.1.js"></script>
 	<script src="./assets/js/bootstrap.min.js"></script>
 	<script src="./assets/js/app_main.js"></script>

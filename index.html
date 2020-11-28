@@ -15,14 +15,43 @@
 <body>
 
 	<div class="container">
+		<!-- main content area -->
+
+		<!-- TODO: temp content -->
 		<div class="d-block text-center title_header">
 			<h2>{heading}</h2>
 			<h5>{sub_heading}</h5>
 		</div>
 
+		<!-- line just to diff -->
 		<hr />
 
 		<div id="elements_menu_holder" class="d-block">
+		</div>
+
+		<!-- modal to get input from user based on element -->
+		<div id="element_input_modal" class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Enter Element Config</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="element_input_form">
+							<!-- loaded dynamically by js -->
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" id="element_input_save">
+							Save changes
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</div>

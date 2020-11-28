@@ -190,6 +190,7 @@ $("#element_input_save").on("click", function (e) {
 	// same page request
 	$.ajax({
 		data: JSON.stringify(data_to_send),
+		url: "content.php",
 		type: "POST",
 		dataType: "json",
 		contentType: "application/json",

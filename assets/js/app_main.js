@@ -189,10 +189,10 @@ $("#element_input_save").on("click", function (e) {
 
 	// same page request
 	$.ajax({
-		data: data_to_send,
+		data: JSON.stringify(data_to_send),
 		type: "POST",
-		contentType: "application/json",
 		dataType: "json",
+		contentType: "application/json",
 		beforeSend: function (_) {
 			data_to_send["page_id"] = getURLParam("view");
 			console.log(data_to_send);

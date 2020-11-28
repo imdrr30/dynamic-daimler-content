@@ -192,6 +192,7 @@ $("#element_input_save").on("click", function (e) {
 		data: data_to_send,
 		type: "POST",
 		contentType: "application/json",
+		dataType: "json",
 		beforeSend: function (_) {
 			data_to_send["page_id"] = getURLParam("view");
 			console.log(data_to_send);

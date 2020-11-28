@@ -187,6 +187,9 @@ $("#element_input_save").on("click", function (e) {
 		data_to_send["css_config"][element.name] = element.checked;
 	});
 
+	// other backend config
+	data_to_send["page_id"] = getURLParam("view");
+
 	// same page request
 	$.ajax({
 		data: JSON.stringify(data_to_send),
@@ -195,7 +198,6 @@ $("#element_input_save").on("click", function (e) {
 		dataType: "json",
 		contentType: "application/json",
 		beforeSend: function (_) {
-			data_to_send["page_id"] = getURLParam("view");
 			console.log(data_to_send);
 		},
 		success: function (result) {

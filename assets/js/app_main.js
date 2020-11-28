@@ -73,8 +73,10 @@ function initEventListeners() {
 			css_config: {},
 		};
 
+		let element_code = event.target.innerHTML;
+
 		// get the element config
-		let input_element_config = ELEMENT_CONFIG[event.target.innerHTML];
+		let input_element_config = ELEMENT_CONFIG[element_code];
 
 		// input values
 		$.each(input_element_config["values"], function (index, input_key) {
@@ -88,6 +90,9 @@ function initEventListeners() {
 				add_element_config["css_config"][css_key] = false;
 			}
 		);
+
+		// code for the input
+		add_element_config["code"] = element_code;
 
 		// update state before model open
 		state["add_element_config"] = add_element_config;
@@ -109,7 +114,26 @@ $("#element_input_modal").on("hide.bs.modal", function (e) {
 // On element config input model saved | save button for input input
 $("#element_input_save").on("click", function (e) {
 	// TODO: send data to BE
+	$("#element_input_form .text_input");
+
+	let data_to_send = {
+		values: {},
+		css_config: {},
+		code: state.add_element_config["code"],
+	};
+
+	// text input
+	$.each($("#element_input_form .text_input"), function (index, element) {
+		data_to_send["values"][element.name] = element.value;
+	});
+
+	// check input
+	$.each($("#element_input_form .check_input"), function (index, element) {
+		data_to_send["css_config"][element.name] = element.checked;
+	});
+
 	alert("send data to BE");
+	console.log(data_to_send);
 });
 
 // ------------------------------------------------------- Called after other pre processing

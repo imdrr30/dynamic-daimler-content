@@ -19,6 +19,11 @@ const ELEMENT_CONFIG = {
 
 // Main state of the application
 let state = {
+	// code : ""
+	// values:
+	// 		heading: ""
+	// css_config:
+	// 		left_align: true
 	add_element_config: {},
 };
 
@@ -132,8 +137,15 @@ $("#element_input_save").on("click", function (e) {
 		data_to_send["css_config"][element.name] = element.checked;
 	});
 
-	alert("send data to BE");
-	console.log(data_to_send);
+	$.ajax({
+		url: "demo_test.txt",
+		data: data_to_send,
+		type: "POST",
+		contentType: "application/json",
+		success: function (result) {
+			alert(result, "success response");
+		},
+	});
 });
 
 // ------------------------------------------------------- Called after other pre processing

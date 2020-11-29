@@ -80,6 +80,33 @@ const ELEMENT_CONFIG = {
 			center_align: "text-center",
 		},
 	},
+	image_carousel: {
+		html: `
+		<div class="d-block element_config image_carousel {css_classes}">
+			<div id="carouselElement__{id}" class="carousel slide" data-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="{image_src_1}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_2}">
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#carouselElement__{id}" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#carouselElement__{id}" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+		`,
+		values: ["image_src_1", "image_src_2"],
+		css_config: {},
+	},
 };
 
 // Main state of the application
@@ -133,7 +160,7 @@ $("#element_input_save").on("click", function (e) {
 let elements_menu_holder = $("#elements_menu_holder");
 $.each(ELEMENT_CONFIG, function (element_key, element_config) {
 	let menu_button = $("<button></button>")
-		.addClass("btn btn-primary btn-lg elements_menu_button ml-2")
+		.addClass("btn btn-primary btn-lg elements_menu_button m-2")
 		.text(element_key);
 
 	elements_menu_holder.append(menu_button);

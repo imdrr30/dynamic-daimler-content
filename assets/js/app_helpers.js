@@ -126,7 +126,11 @@ function initAddElementConfigModal() {
 
 		// if in case an image uploader is necessary
 		// add a button that helps upload and get the file url
-		if (["image_src", "file_src"].includes(input_name)) {
+		if (
+			["image_src", "file_src", "image_src_1", "image_src_2"].includes(
+				input_name
+			)
+		) {
 			form_group.append(
 				$(
 					`<input type="file" class='mt-2' name='${input_name}__file' />`
@@ -178,6 +182,9 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		let code = saved_config["code"];
 		let element_config = ELEMENT_CONFIG[code];
 		let html = element_config["html"];
+
+		// adding ID for dynamic content
+		html = html.replace(`{id}`, saved_config["id"] || "null");
 
 		// replace html values
 		$.each(saved_config["values"], function (data_name, data_value) {

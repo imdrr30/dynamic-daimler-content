@@ -53,7 +53,7 @@ const ELEMENT_CONFIG = {
 		values: ["image_src"],
 		css_config: {
 			left_align: "text-left",
-			right_align: "text-left",
+			right_align: "text-right",
 			center_align: "text-center",
 			image_sm: "image_sm",
 			image_md: "image_md",
@@ -74,7 +74,7 @@ const ELEMENT_CONFIG = {
 		values: ["file_src"],
 		css_config: {
 			left_align: "text-left",
-			right_align: "text-left",
+			right_align: "text-right",
 			center_align: "text-center",
 		},
 	},

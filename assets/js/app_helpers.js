@@ -58,10 +58,10 @@ function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
 			console.log(data);
 		},
 		success: function (result) {
-			if (afterFunc === null) {
+			if (successFunc === null) {
 				window.location.reload();
 			} else {
-				afterFunc(result);
+				successFunc(result);
 			}
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
@@ -135,7 +135,15 @@ function initAddElementConfigModal() {
 					let files = $(`input[name='${input_name}__file']`)[0].files;
 					if (files.length > 0) {
 						formData.append("file", files[0]);
-						alert("upload file");
+						sendAjaxRequest(
+							formData,
+							"https://gprs-api.geopits.com/common/files/",
+							true,
+							function (result) {
+								$(`input[name='${input_name}']`)[0].value =
+									result["file"];
+							}
+						);
 					}
 				})
 			);

@@ -300,7 +300,9 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 			action_tab.append(
 				$(`<button class="btn btn-warning mr-2">Edit</button>`).on(
 					"click",
-					function () {
+					function (e) {
+						e.preventdefault();
+
 						// edit element state
 						state["add_element_config"] = saved_config;
 
@@ -314,7 +316,9 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 			action_tab.append(
 				$(`<button class="btn btn-danger">Delete</button>`).on(
 					"click",
-					function () {
+					function (e) {
+						e.preventdefault();
+
 						sendAjaxRequest(
 							{
 								page_id: getURLParam("view"),

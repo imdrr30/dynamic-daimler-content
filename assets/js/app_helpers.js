@@ -112,7 +112,18 @@ function initAddElementConfigModal() {
 		// if in case an image uploader is necessary
 		// add a button that helps upload and get the file url
 		if (["image_src"].includes(input_name)) {
-			form_group.append($(`<input type="file" class='mt-2' />`));
+			form_group.append(
+				$(
+					`<input type="file" class='mt-2' name='${input_name}__file' />`
+				).on("change", function () {
+					let formData = new FormData();
+					let files = $(`input[name='${input_name}__file']`)[0].files;
+					if (files.length > 0) {
+						formData.append("file", files[0]);
+						alert("upload file");
+					}
+				})
+			);
 		}
 
 		input_data_container.append(form_group);

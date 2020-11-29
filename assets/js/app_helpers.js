@@ -315,7 +315,6 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 				$(`<button class="btn btn-danger">Delete</button>`).on(
 					"click",
 					function () {
-						let data_to_send = getUserInputFromModal();
 						sendAjaxRequest(
 							{
 								page_id: getURLParam("view"),

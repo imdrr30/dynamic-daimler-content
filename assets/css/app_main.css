@@ -5,6 +5,11 @@ body {
 	padding: 0;
 }
 
+/* common elements config */
+.element_config {
+	margin: 20px 0px;
+}
+
 /* image size mapping */
 .image_sm img {
 	max-width: 250px;

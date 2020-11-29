@@ -74,7 +74,7 @@ function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
 			}
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			// window.location.reload();
+			window.location.reload();
 		},
 		...other_config,
 	});
@@ -117,14 +117,18 @@ function setAddElementState(element_code) {
 	state["add_element_config"] = add_element_config;
 }
 
-// to init the elements inside the add element config modal
-// works based on the state.add_element_config
+/**
+ * To init the contents of the modal based on the data from the state.
+ * This renders other dynamic fields as well.
+ */
+// TODO: refactor later
 function initAddElementConfigModal() {
 	let input_data_container = $("#element_input_modal #element_input_form");
 
-	let code = state["add_element_config"]["code"];
-	let text_input = state["add_element_config"]["values"];
-	let check_input = state["add_element_config"]["css_config"];
+	let add_element_config = state["add_element_config"];
+	let code = add_element_config["code"];
+	let text_input = add_element_config["values"];
+	let check_input = add_element_config["css_config"];
 
 	// if in case the element neeeds dynamic nature
 	if (["image_carousel"].includes(code)) {
@@ -242,8 +246,13 @@ function initAddElementConfigModal() {
 	});
 }
 
-// this renders the preview of the elemets from the server
+/**
+ * Given the parent block under which the saved elements are to be created, this function
+ * renders the elements using the defined config and other stuff. When the `addModifyActions` is
+ * passed, this adds the edit and the delete button as well for modification operations.
+ */
 function renderSavedElements(jQueryElement, addModifyActions = true) {
+	// for each element in the data from the server
 	$.each(saved_elements_data, function (index, saved_config) {
 		let code = saved_config["code"];
 		let element_config = ELEMENT_CONFIG[code];
@@ -256,6 +265,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		$.each(saved_config["values"], function (data_name, data_value) {
 			html = html.replace(`{${data_name}}`, data_value);
 
+			// TODO: refactor later
 			// other custom elements | showing file source
 			if (["file_src"].includes(data_name)) {
 				html = html.replace(
@@ -274,6 +284,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		});
 		html = html.replace(`{css_classes}`, css_class_string);
 
+		// TODO: refactor later
 		if (addModifyActions) {
 			// init the actions
 			let action_tab = $(

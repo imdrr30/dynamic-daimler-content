@@ -112,20 +112,14 @@ function initAddElementConfigModal() {
 		// if in case an image uploader is necessary
 		// add a button that helps upload and get the file url
 		if (["image_src"].includes(input_name)) {
-			form_group.append(
-				$(
-					`<div class='text-right'>
-						<button class='btn btn-secondary mt-2'>Upload</button>
-					</div>
-					`
-				).on("click", function (e) {
-					alert(input_name);
-				})
-			);
+			form_group.append($(`<input type="file" class='mt-2' />`));
 		}
 
 		input_data_container.append(form_group);
 	});
+
+	// just to separate css from html
+	input_data_container.append($(`<hr />`));
 
 	// checkbox input
 	$.each(check_input, function (input_name, input_value) {

@@ -1,6 +1,45 @@
 // ------------------------------------------------------- Global level config
 
-// Elements configuration
+/**
+ * The initial state for the entire application. This is used as a constant
+ * for replacing the states when required.
+ */
+const INITIAL_STATE = {
+	add_element_config: {
+		code: null,
+		values: {},
+		temp: {},
+		css_config: {},
+		id: null,
+	},
+};
+
+/**
+ * This contains the common element configurations like the alignment,
+ * font, size etc. This is used in the `ELEMENT_CONFIG` for making things dry.
+ */
+const COMMON_ELEMENT_CONFIG = {
+	alignment: {
+		left_align: "text-left",
+		center_align: "text-center",
+		right_align: "text-right",
+	},
+	font_size: {
+		font_md: "font_md",
+		font_lg: "font_lg",
+	},
+	image_size: {
+		image_sm: "image_sm",
+		image_md: "image_md",
+		image_banner: "image_banner",
+	},
+};
+
+/**
+ * The main element/component configuration for the entire application.
+ * This is used by the other functions for dynamically getting values from user
+ * and to render the components on the page accordingly.
+ */
 const ELEMENT_CONFIG = {
 	title_header: {
 		html: `
@@ -11,8 +50,7 @@ const ELEMENT_CONFIG = {
 		`,
 		values: ["heading", "sub_heading"],
 		css_config: {
-			left_align: "text-left",
-			center_align: "text-center",
+			...COMMON_ELEMENT_CONFIG["alignment"],
 		},
 	},
 	text_content: {
@@ -25,10 +63,8 @@ const ELEMENT_CONFIG = {
 		`,
 		values: ["content"],
 		css_config: {
-			left_align: "text-left",
-			center_align: "text-center",
-			font_md: "font_md",
-			font_lg: "font_lg",
+			...COMMON_ELEMENT_CONFIG["alignment"],
+			...COMMON_ELEMENT_CONFIG["font_size"],
 		},
 	},
 	image_with_content: {
@@ -54,12 +90,8 @@ const ELEMENT_CONFIG = {
 		`,
 		values: ["image_src"],
 		css_config: {
-			left_align: "text-left",
-			right_align: "text-right",
-			center_align: "text-center",
-			image_sm: "image_sm",
-			image_md: "image_md",
-			image_banner: "image_banner",
+			...COMMON_ELEMENT_CONFIG["font_size"],
+			...COMMON_ELEMENT_CONFIG["image_size"],
 		},
 	},
 	single_file: {
@@ -75,9 +107,7 @@ const ELEMENT_CONFIG = {
 		`,
 		values: ["file_src"],
 		css_config: {
-			left_align: "text-left",
-			right_align: "text-right",
-			center_align: "text-center",
+			...COMMON_ELEMENT_CONFIG["alignment"],
 		},
 	},
 	image_carousel: {
@@ -109,17 +139,12 @@ const ELEMENT_CONFIG = {
 	},
 };
 
-// Main state of the application
+/**
+ * Main state of the application, used to handle the common functionalities
+ * like edit, create etc. Used in the other functions.
+ */
 let state = {
-	// code : ""
-	// values:
-	// 		heading: ""
-	// temp:
-	// 		heading: ""
-	// css_config:
-	// 		left_align: true
-	// id: null || ""
-	add_element_config: {},
+	add_element_config: INITIAL_STATE["add_element_config"],
 };
 
 // ------------------------------------------------------- Functions

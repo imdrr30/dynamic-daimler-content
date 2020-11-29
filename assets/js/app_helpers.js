@@ -17,8 +17,7 @@ function getURLParam(k) {
  */
 function getUserInputFromModal() {
 	let data_to_send = {
-		values: {},
-		css_config: {},
+		...INITIAL_STATE["add_element_config"],
 		code: state.add_element_config["code"],
 		id: state.add_element_config["id"] || null,
 	};
@@ -86,22 +85,17 @@ function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
  * Used after each opeartion that modifies the model.
  */
 function resetAddElementConfig() {
-	state["add_element_config"] = {};
+	state["add_element_config"] = INITIAL_STATE["add_element_config"];
 	$("#element_input_modal #element_input_form").empty();
 }
 
-// sets the add_element_config in the state based on the element code
 /**
  * This is called before the opening/init of the model. This simply sets the state
  * for the model based on the element code.
  */
 function setAddElementState(element_code) {
 	// variable to update the state
-	let add_element_config = {
-		values: {},
-		temp: {},
-		css_config: {},
-	};
+	let add_element_config = INITIAL_STATE["add_element_config"];
 
 	// get the element config
 	let input_element_config = ELEMENT_CONFIG[element_code];

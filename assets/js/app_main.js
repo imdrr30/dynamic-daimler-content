@@ -204,9 +204,9 @@ function initEventListeners() {
  */
 let elements_menu_holder = $("#elements_menu_holder");
 $.each(ELEMENT_CONFIG, function (element_key, element_config) {
-	let menu_button = $("<button></button>")
-		.addClass("btn btn-primary btn-lg elements_menu_button m-2")
-		.text(element_key);
+	let menu_button = $(
+		"<button type='button' class='btn btn-primary btn-lg elements_menu_button m-2'></button>"
+	).text(element_key);
 
 	elements_menu_holder.append(menu_button);
 });

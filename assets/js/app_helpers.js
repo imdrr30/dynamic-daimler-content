@@ -298,37 +298,35 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 				`<div class="d-flex justify-content-end"></div>`
 			);
 			action_tab.append(
-				$(`<button class="btn btn-warning mr-2">Edit</button>`).on(
-					"click",
-					function (e) {
-						e.preventdefault();
+				$(
+					`<button type="button" class="btn btn-warning mr-2">Edit</button>`
+				).on("click", function (e) {
+					e.preventdefault();
 
-						// edit element state
-						state["add_element_config"] = saved_config;
+					// edit element state
+					state["add_element_config"] = saved_config;
 
-						initAddElementConfigModal();
+					initAddElementConfigModal();
 
-						// show modal
-						$("#element_input_modal").modal("show");
-					}
-				)
+					// show modal
+					$("#element_input_modal").modal("show");
+				})
 			);
 			action_tab.append(
-				$(`<button class="btn btn-danger">Delete</button>`).on(
-					"click",
-					function (e) {
-						e.preventdefault();
+				$(
+					`<button type="button" class="btn btn-danger">Delete</button>`
+				).on("click", function (e) {
+					e.preventdefault();
 
-						sendAjaxRequest(
-							{
-								page_id: getURLParam("view"),
-								id: saved_config["id"],
-							},
-							"content.php",
-							"DELETE"
-						);
-					}
-				)
+					sendAjaxRequest(
+						{
+							page_id: getURLParam("view"),
+							id: saved_config["id"],
+						},
+						"content.php",
+						"DELETE"
+					);
+				})
 			);
 			// action tab | edit | delete
 			jQueryElement.append(action_tab);

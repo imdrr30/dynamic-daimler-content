@@ -34,7 +34,7 @@ const ELEMENT_CONFIG = {
 		<div class="element_config image_with_content row {css_classes}">
 			<div class="col-md-6">{content}</div>
 			<div class="col-md-6">
-				<img src="{image_src}" />
+				<img class='img-fluid' src="{image_src}" />
 			</div>
 		</div>
 		`,
@@ -47,7 +47,7 @@ const ELEMENT_CONFIG = {
 	single_image: {
 		html: `
 		<div class="d-block element_config single_image {css_classes}">
-			<img src="{image_src}" />
+			<img class='img-fluid' src="{image_src}" />
 		</div>
 		`,
 		values: ["image_src"],

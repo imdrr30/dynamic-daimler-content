@@ -24,7 +24,8 @@ function getUserInputFromModal() {
 
 	// text input
 	$.each($("#element_input_form .text_input"), function (index, element) {
-		data_to_send["values"][element.name] = element.value;
+		let dict_key_to_store = element.name.includes("__") ? "temp" : "values";
+		data_to_send[dict_key_to_store][element.name] = element.value;
 	});
 
 	// check input
@@ -140,7 +141,7 @@ function initAddElementConfigModal() {
 
 	// if in case the element neeeds dynamic nature
 	if (["image_carousel"].includes(code)) {
-		let element_name = `${code}__count`;
+		let element_name = `${code}__count`; // temp data
 		let count_form_group = $("<div class='form-group'></div>")
 			.append($("<label>Count</label>"))
 			.append(
@@ -336,7 +337,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 
 		// add formed content to container
 		jQueryElement.append(
-			$(html).attr("id", `${code}__${saved_config["id"]}`)
+			$(html).attr("id", `${code}_${saved_config["id"]}`)
 		);
 	});
 }

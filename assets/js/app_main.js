@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 		code: null,
 		values: {},
 		temp: {},
+		others: {},
 		css_config: {},
 		id: null,
 	},
@@ -113,7 +114,7 @@ const ELEMENT_CONFIG = {
 	image_carousel: {
 		html: `
 		<div class="d-block element_config image_carousel {css_classes}">
-			<div id="carouselElement__{id}" class="carousel slide" data-ride="carousel">
+			<div id="carouselElement_{id}" class="carousel slide" data-ride="carousel">
 
 				<div class="carousel-inner">
 					<div class="carousel-item active">
@@ -124,10 +125,10 @@ const ELEMENT_CONFIG = {
 					</div>
 				</div>
 
-				<a class="carousel-control-prev" href="#carouselElement__{id}" role="button" data-slide="prev">
+				<a class="carousel-control-prev" href="#carouselElement_{id}" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				</a>
-				<a class="carousel-control-next" href="#carouselElement__{id}" role="button" data-slide="next">
+				<a class="carousel-control-next" href="#carouselElement_{id}" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				</a>
 

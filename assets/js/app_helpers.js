@@ -50,6 +50,9 @@ function sendAjaxRequest(data, url, afterFunc = null) {
 				afterFunc(result);
 			}
 		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			// window.location.reload();
+		},
 	});
 }
 
@@ -137,7 +140,14 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 			html = html.replace(`{${data_name}}`, data_value);
 		});
 
-		// TODO: to add the css classes
+		// adding the css class names
+		let css_class_string = "";
+		$.each(saved_config["css_config"], function (css_key, css_bool) {
+			if (css_bool) {
+				css_class_string += `${element_config["css_config"][css_key]} `;
+			}
+		});
+		html = html.replace(`{css_classes}`, css_class_string);
 
 		if (addModifyActions) {
 			// init the actions
@@ -163,7 +173,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 				$(`<button class="btn btn-danger">Delete</button>`).on(
 					"click",
 					function () {
-						alert(index);
+						alert("delete: " + index);
 					}
 				)
 			);

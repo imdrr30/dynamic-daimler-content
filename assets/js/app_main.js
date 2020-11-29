@@ -4,12 +4,26 @@
 const ELEMENT_CONFIG = {
 	title_header: {
 		html: `
-		<div class="d-block text-center element_config title_header {css_classes}">
+		<div class="d-block element_config title_header {css_classes}">
 			<h2>{heading}</h2>
 			<h5>{sub_heading}</h5>
 		</div>
 		`,
 		values: ["heading", "sub_heading"],
+		css_config: {
+			left_align: "text-left",
+			center_align: "text-center",
+		},
+	},
+	text_content: {
+		html: `
+		<div class="d-block element_config text_content {css_classes}">
+			<p>
+				{content}
+			</p>
+		</div>
+		`,
+		values: ["content"],
 		css_config: {
 			left_align: "text-left",
 			center_align: "text-center",
@@ -67,7 +81,7 @@ $("#element_input_save").on("click", function (e) {
 let elements_menu_holder = $("#elements_menu_holder");
 $.each(ELEMENT_CONFIG, function (element_key, element_config) {
 	let menu_button = $("<button></button>")
-		.addClass("btn btn-primary btn-lg elements_menu_button")
+		.addClass("btn btn-primary btn-lg elements_menu_button ml-2")
 		.text(element_key);
 
 	elements_menu_holder.append(menu_button);

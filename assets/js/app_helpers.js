@@ -184,7 +184,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		let html = element_config["html"];
 
 		// adding ID for dynamic content
-		html = html.replace(`{id}`, saved_config["id"] || "null");
+		html = html.replaceAll(`{id}`, saved_config["id"] || "null");
 
 		// replace html values
 		$.each(saved_config["values"], function (data_name, data_value) {

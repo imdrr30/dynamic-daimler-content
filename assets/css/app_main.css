@@ -40,3 +40,12 @@ body {
 .font_lg p {
 	font-size: 20px;
 }
+
+/* customise carousel */
+.carousel .carousel-control-next {
+	background: linear-gradient(-90deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+}
+
+.carousel .carousel-control-prev {
+	background: linear-gradient(90deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+}

@@ -72,6 +72,7 @@ function sendAjaxRequest(
 		type: method,
 		beforeSend: function (_) {
 			console.log(data);
+			console.log(JSON.stringify(data));
 		},
 		success: function (result) {
 			if (successFunc === null) {

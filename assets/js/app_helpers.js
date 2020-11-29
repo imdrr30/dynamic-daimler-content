@@ -301,7 +301,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 				$(
 					`<button type="button" class="btn btn-warning mr-2">Edit</button>`
 				).on("click", function (e) {
-					e.preventdefault();
+					e.preventDefault();
 
 					// edit element state
 					state["add_element_config"] = saved_config;
@@ -316,7 +316,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 				$(
 					`<button type="button" class="btn btn-danger">Delete</button>`
 				).on("click", function (e) {
-					e.preventdefault();
+					e.preventDefault();
 
 					sendAjaxRequest(
 						{

@@ -42,7 +42,13 @@ function getUserInputFromModal() {
  * This function sends the requests to the BE server. This uses ajax jQuery.
  * This is also used to send Form and JSON data depending on the params.
  */
-function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
+function sendAjaxRequest(
+	data,
+	url,
+	method = "POST",
+	isFileUpload = false,
+	successFunc = null
+) {
 	let other_config = {};
 	if (isFileUpload) {
 		// for file upload | i.e FormData
@@ -62,7 +68,7 @@ function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
 
 	$.ajax({
 		url: url,
-		type: "POST",
+		type: method,
 		beforeSend: function (_) {
 			console.log(data);
 		},
@@ -74,7 +80,7 @@ function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
 			}
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			window.location.reload();
+			// window.location.reload();
 		},
 		...other_config,
 	});
@@ -211,7 +217,8 @@ function initAddElementConfigModal() {
 						formData.append("file", files[0]);
 						sendAjaxRequest(
 							formData,
-							"https://gprs-api.geopits.com/common/files/",
+							"content.php",
+							"POST",
 							true,
 							function (result) {
 								$(`input[name='${input_name}']`)[0].value =
@@ -295,8 +302,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 					"click",
 					function () {
 						// edit element state
-						let indexData = saved_elements_data[index];
-						state["add_element_config"] = indexData;
+						state["add_element_config"] = saved_config;
 
 						initAddElementConfigModal();
 
@@ -309,7 +315,15 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 				$(`<button class="btn btn-danger">Delete</button>`).on(
 					"click",
 					function () {
-						alert("delete: " + index);
+						let data_to_send = getUserInputFromModal();
+						sendAjaxRequest(
+							{
+								page_id: getURLParam("view"),
+								id: saved_config["id"],
+							},
+							"content.php",
+							"DELETE"
+						);
 					}
 				)
 			);

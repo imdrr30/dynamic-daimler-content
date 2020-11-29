@@ -53,6 +53,7 @@ let state = {
 	// 		heading: ""
 	// css_config:
 	// 		left_align: true
+	// id: null || ""
 	add_element_config: {},
 };
 

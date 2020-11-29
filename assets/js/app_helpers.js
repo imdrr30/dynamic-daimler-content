@@ -1,13 +1,20 @@
-// returns the URL param passed for the key
+/**
+ * Gets the passed URL params for a given page and return the query_param value for the
+ * passed key. Used while sending data to the server.
+ */
 function getURLParam(k) {
 	var p = {};
 	location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (s, k, v) {
 		p[k] = v;
 	});
-	return k ? p[k] : p;
+	return k ? p[k] : p; // single value or all
 }
 
-// gets the user input from the user model with a defined schema
+/**
+ * The user input modal handles the data while creating a component and while
+ * editing a component. This function is used to get the necessary data from the model.
+ * This is moslty called before sending data to the BE.
+ */
 function getUserInputFromModal() {
 	let data_to_send = {
 		values: {},

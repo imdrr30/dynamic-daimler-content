@@ -29,6 +29,21 @@ const ELEMENT_CONFIG = {
 			center_align: "text-center",
 		},
 	},
+	image_with_content: {
+		html: `
+		<div class="element_config image_with_content row {css_classes}">
+			<div class="col-md-6">{content}</div>
+			<div class="col-md-6">
+				<img src="{image_src}" />
+			</div>
+		</div>
+		`,
+		values: ["content", "image_src"],
+		css_config: {
+			center_align_text: "text-center",
+			reverse_image_direction: "flex-row-reverse",
+		},
+	},
 };
 
 // Main state of the application

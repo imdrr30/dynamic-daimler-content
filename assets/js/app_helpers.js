@@ -108,6 +108,22 @@ function initAddElementConfigModal() {
 				.attr("name", input_name)
 				.attr("value", input_value)
 		);
+
+		// if in case an image uploader is necessary
+		// add a button that helps upload and get the file url
+		if (["image_src"].includes(input_name)) {
+			form_group.append(
+				$(
+					`<div class='text-right'>
+						<button class='btn btn-secondary mt-2'>Upload</button>
+					</div>
+					`
+				).on("click", function (e) {
+					alert(input_name);
+				})
+			);
+		}
+
 		input_data_container.append(form_group);
 	});
 

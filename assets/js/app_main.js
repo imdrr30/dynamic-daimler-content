@@ -189,7 +189,7 @@ function initEventListeners() {
 	 * from the modal elements and sends the data to the BE.
 	 */
 	$("#element_input_save").on("click", function (e) {
-		e.preventdefault();
+		e.preventDefault();
 
 		let data_to_send = getUserInputFromModal();
 		sendAjaxRequest(data_to_send, "content.php");

@@ -39,7 +39,10 @@ function getUserInputFromModal() {
 	return data_to_send;
 }
 
-// sends request to the server
+/**
+ * This function sends the requests to the BE server. This uses ajax jQuery.
+ * This is also used to send Form and JSON data depending on the params.
+ */
 function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
 	let other_config = {};
 	if (isFileUpload) {
@@ -78,13 +81,20 @@ function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
 	});
 }
 
-// resets the add element config and mmodal
+/**
+ * This function resets the add_element_config state and the linked model.
+ * Used after each opeartion that modifies the model.
+ */
 function resetAddElementConfig() {
 	state["add_element_config"] = {};
 	$("#element_input_modal #element_input_form").empty();
 }
 
 // sets the add_element_config in the state based on the element code
+/**
+ * This is called before the opening/init of the model. This simply sets the state
+ * for the model based on the element code.
+ */
 function setAddElementState(element_code) {
 	// variable to update the state
 	let add_element_config = {

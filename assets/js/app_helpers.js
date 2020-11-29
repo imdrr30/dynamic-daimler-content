@@ -126,7 +126,7 @@ function initAddElementConfigModal() {
 
 		// if in case an image uploader is necessary
 		// add a button that helps upload and get the file url
-		if (["image_src"].includes(input_name)) {
+		if (["image_src", "file_src"].includes(input_name)) {
 			form_group.append(
 				$(
 					`<input type="file" class='mt-2' name='${input_name}__file' />`

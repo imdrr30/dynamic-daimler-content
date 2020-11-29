@@ -60,6 +60,24 @@ const ELEMENT_CONFIG = {
 			image_banner: "image_banner",
 		},
 	},
+	single_file: {
+		html: `
+		<div class="d-block element_config single_file {css_classes}">
+			<div class="single_file_container bg-light">
+				<img src="./assets/images/file.png" />
+				<a href="{file_src}">
+					{file_src}
+				</a>
+			</div>
+		</div>
+		`,
+		values: ["file_src"],
+		css_config: {
+			left_align: "text-left",
+			right_align: "text-left",
+			center_align: "text-center",
+		},
+	},
 };
 
 // Main state of the application

@@ -101,7 +101,9 @@ function resetAddElementConfig() {
  */
 function setAddElementState(element_code) {
 	// variable to update the state
-	let add_element_config = INITIAL_STATE["add_element_config"];
+	let add_element_config = JSON.parse(
+		JSON.stringify(INITIAL_STATE["add_element_config"])
+	);
 
 	// get the element config
 	let input_element_config = ELEMENT_CONFIG[element_code];

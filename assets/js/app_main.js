@@ -149,41 +149,57 @@ let state = {
 
 // ------------------------------------------------------- Functions
 
-// to render the page with the data from the BE
-// this data is the saved components in the BE
+/**
+ * The modal is used to create the elements dynamically, this is used to
+ * get the data of the created components and inits the page with the elements.
+ */
 function initPageWithSavedComponents() {
 	let main_saved_contents = $("#main_saved_contents");
 	renderSavedElements(main_saved_contents);
 }
 
-// To init all the event listeners in the app
+/**
+ * This function prepares all the event listeners for the app.
+ * Since most of the contents are dynamic, this is called whenever some
+ * new component is created.
+ */
 function initEventListeners() {
+	/**
+	 * When the menu buttons rendered are clicked, this invoked specific functions.
+	 */
 	$(".elements_menu_button").click(function (event) {
-		event.preventDefault();
+		// prepare the state
 		setAddElementState(event.target.innerHTML);
 		initAddElementConfigModal();
 
 		// show modal
 		$("#element_input_modal").modal("show");
 	});
+
+	/**
+	 * This block of code, resets the state and other modal related stuff, when
+	 * the modal is closed.
+	 */
+	$("#element_input_modal").on("hide.bs.modal", function (e) {
+		resetAddElementConfig();
+	});
+
+	/**
+	 * This is called when the save button in the modal is called. This gets the data
+	 * from the modal elements and sends the data to the BE.
+	 */
+	$("#element_input_save").on("click", function (e) {
+		let data_to_send = getUserInputFromModal();
+		sendAjaxRequest(data_to_send, "content.php");
+	});
 }
-
-// ------------------------------------------------------- Event listeners
-
-// On element config input model close
-$("#element_input_modal").on("hide.bs.modal", function (e) {
-	resetAddElementConfig();
-});
-
-// On element config input model saved | save button for input input
-$("#element_input_save").on("click", function (e) {
-	let data_to_send = getUserInputFromModal();
-	sendAjaxRequest(data_to_send, "content.php");
-});
 
 // ------------------------------------------------------- Called after other pre processing
 
-// Elements menu rendering function
+/**
+ * This block initalizes the menu items defined by the `ELEMENT_CONFIG`.
+ * Basically buttons rendered for the user to take actions.
+ */
 let elements_menu_holder = $("#elements_menu_holder");
 $.each(ELEMENT_CONFIG, function (element_key, element_config) {
 	let menu_button = $("<button></button>")
@@ -193,5 +209,9 @@ $.each(ELEMENT_CONFIG, function (element_key, element_config) {
 	elements_menu_holder.append(menu_button);
 });
 
+/**
+ * Space to call the other functions defined in the app.
+ * Defined as a function just to make things DRY & clean.
+ */
 initPageWithSavedComponents();
 initEventListeners();

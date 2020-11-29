@@ -33,13 +33,27 @@ function getUserInputFromModal() {
 }
 
 // sends request to the server
-function sendAjaxRequest(data, url, afterFunc = null) {
+function sendAjaxRequest(data, url, isFileUpload = false, successFunc = null) {
+	let other_config = {};
+	if (isFileUpload) {
+		// for file upload | i.e FormData
+		other_config = {
+			data: data,
+			contentType: false,
+			processData: false,
+		};
+	} else {
+		// for other json request | json data
+		other_config = {
+			data: JSON.stringify(data),
+			dataType: "json",
+			contentType: "application/json",
+		};
+	}
+
 	$.ajax({
-		data: JSON.stringify(data),
 		url: url,
 		type: "POST",
-		dataType: "json",
-		contentType: "application/json",
 		beforeSend: function (_) {
 			console.log(data);
 		},
@@ -53,6 +67,7 @@ function sendAjaxRequest(data, url, afterFunc = null) {
 		error: function (jqXHR, textStatus, errorThrown) {
 			// window.location.reload();
 		},
+		...other_config,
 	});
 }
 

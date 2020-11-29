@@ -4,3 +4,16 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+/* image size mapping */
+.image_sm img {
+	max-width: 250px;
+}
+
+.image_md img {
+	max-width: 400px;
+}
+
+.image_banner img {
+	max-width: 100%;
+}

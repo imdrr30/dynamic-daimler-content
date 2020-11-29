@@ -55,6 +55,9 @@ const ELEMENT_CONFIG = {
 			left_align: "text-left",
 			right_align: "text-left",
 			center_align: "text-center",
+			image_sm: "image_sm",
+			image_md: "image_md",
+			image_banner: "image_banner",
 		},
 	},
 };

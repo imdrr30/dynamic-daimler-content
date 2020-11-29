@@ -182,6 +182,14 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		// replace html values
 		$.each(saved_config["values"], function (data_name, data_value) {
 			html = html.replace(`{${data_name}}`, data_value);
+
+			// other custom elements | showing file source
+			if (["file_src"].includes(data_name)) {
+				html = html.replace(
+					`{file_src_name}`,
+					data_value.split("/").pop()
+				);
+			}
 		});
 
 		// adding the css class names

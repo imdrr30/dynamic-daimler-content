@@ -65,8 +65,8 @@ const ELEMENT_CONFIG = {
 		<div class="d-block element_config single_file {css_classes}">
 			<div class="single_file_container bg-light">
 				<img src="./assets/images/file.png" />
-				<a href="{file_src}">
-					{file_src}
+				<a target='_blank' href="{file_src}">
+					{file_src_name}
 				</a>
 			</div>
 		</div>

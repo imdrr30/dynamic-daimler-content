@@ -27,6 +27,8 @@ const ELEMENT_CONFIG = {
 		css_config: {
 			left_align: "text-left",
 			center_align: "text-center",
+			font_md: "font_md",
+			font_lg: "font_lg",
 		},
 	},
 	image_with_content: {

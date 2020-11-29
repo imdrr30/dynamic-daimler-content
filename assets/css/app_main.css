@@ -31,3 +31,12 @@ body {
 .single_file_container img {
 	max-width: 50px;
 }
+
+/* font size config */
+.font_md p {
+	font-size: 18px;
+}
+
+.font_lg p {
+	font-size: 20px;
+}

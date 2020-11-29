@@ -82,7 +82,6 @@ function setAddElementState(element_code) {
 	// variable to update the state
 	let add_element_config = {
 		values: {},
-		temp: {},
 		css_config: {},
 	};
 
@@ -117,16 +116,17 @@ function initAddElementConfigModal() {
 
 	// if in case the element neeeds dynamic nature
 	if (["image_carousel"].includes(code)) {
-		let element_name = `${code}__count`;
 		let count_form_group = $("<div class='form-group'></div>")
 			.append($("<label>Count</label>"))
 			.append(
 				$("<input />")
 					.addClass("form-control text_input")
-					.attr("name", element_name)
+					.attr("name", `${code}__count`)
 					.attr(
 						"value",
-						state["add_element_config"]["temp"][element_name] || 2
+						state["add_element_config"]["values"][
+							`${code}__count`
+						] || 2
 					)
 					.attr("type", "number")
 					.attr("min", 2)
@@ -134,27 +134,22 @@ function initAddElementConfigModal() {
 					.on("change", function (e) {
 						let given_other_value = parseInt(e.target.value);
 
-						// reset state
-						resetAddElementConfig();
-						setAddElementState(code);
+						// reinit the state for the modal
+						setAddElementState();
 
-						// update new state
-						for (
-							let index = 2;
-							index <= given_other_value;
-							index++
-						) {
-							state["add_element_config"]["values"][
-								`image_src_${index}`
-							] = "";
+						let stored_values =
+							state["add_element_config"]["values"];
+						let defined_values_config =
+							ELEMENT_CONFIG[code]["values"];
+
+						defined_values_config[`${code}__count`] = stored_values;
+						// update the state dynamically
+						for (let index = 2; index <= stored_values; index++) {
+							defined_values_config[`image_src_${index}`] = "";
 						}
-
-						// update the count
-						state["add_element_config"]["temp"][
-							element_name
-						] = given_other_value;
-
-						// init the modal again
+						state["add_element_config"][
+							"values"
+						] = defined_values_config;
 						initAddElementConfigModal();
 					})
 			);
@@ -175,16 +170,9 @@ function initAddElementConfigModal() {
 		// if in case an image uploader is necessary
 		// add a button that helps upload and get the file url
 		if (
-			[
-				"image_src",
-				"file_src",
-				"image_src_1",
-				"image_src_2",
-				"image_src_3",
-				"image_src_4",
-				"image_src_5",
-				"image_src_6",
-			].includes(input_name)
+			["image_src", "file_src", "image_src_1", "image_src_2"].includes(
+				input_name
+			)
 		) {
 			form_group.append(
 				$(

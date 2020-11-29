@@ -44,6 +44,19 @@ const ELEMENT_CONFIG = {
 			reverse_image_direction: "flex-row-reverse",
 		},
 	},
+	single_image: {
+		html: `
+		<div class="d-block element_config single_image {css_classes}">
+			<img src="{image_src}" />
+		</div>
+		`,
+		values: ["image_src"],
+		css_config: {
+			left_align: "text-left",
+			right_align: "text-left",
+			center_align: "text-center",
+		},
+	},
 };
 
 // Main state of the application

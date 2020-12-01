@@ -28,6 +28,7 @@ const COMMON_ELEMENT_CONFIG = {
 	font_size: {
 		font_md: "font_md",
 		font_lg: "font_lg",
+		font_bold: "bold",
 	},
 	image_size: {
 		image_sm: "image_sm",
@@ -45,7 +46,7 @@ const ELEMENT_CONFIG = {
 	title_header: {
 		html: `
 		<div class="d-block element_config title_header {css_classes}">
-			<h2>{heading}</h2>
+			<h1>{heading}</h1>
 			<h5>{sub_heading}</h5>
 		</div>
 		`,

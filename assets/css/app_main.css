@@ -56,6 +56,10 @@ body {
 }
 
 /* footer_with_link */
+.footer_with_link .image_content {
+	max-width: 100%;
+}
+
 .footer_with_link .main_fontent_wrapper {
 	min-height: 50px;
 	background: #d5d8da;

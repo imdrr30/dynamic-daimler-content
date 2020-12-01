@@ -20,23 +20,28 @@
 		<!-- shows saved elements -->
 		<div id="main_saved_contents">
 
-			<div class="d-block element_config footer_with_link footer_with_link_2 {css_classes}">
-				<div class="row">
-					<div class="col-md-6" onclick="window.open('{link_1}', '_blank')">
-						<img class="image_content" src="{image_src_1}" />
-						<div class="main_fontent_wrapper">
-							<a>{link_text_1}</a>
-							<img src="./assets/images/arrow-right.png" />
+			<div class="d-block element_config video_iframe video_iframe_3 {css_classes}">
+				<div id="videoCarouselElement_{id}" class="carousel slide" data-ride="carousel">
+
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<iframe src="{link_1}"></iframe>
+						</div>
+						<div class="carousel-item">
+							<iframe src="{link_2}"></iframe>
+						</div>
+						<div class="carousel-item">
+							<iframe src="{link_3}"></iframe>
 						</div>
 					</div>
 
-					<div class="col-md-6" onclick="window.open('{link_2}', '_blank')">
-						<img class="image_content" src="{image_src_2}" />
-						<div class="main_fontent_wrapper">
-							<a>{link_text_2}</a>
-							<img src="./assets/images/arrow-right.png" />
-						</div>
-					</div>
+					<a class="carousel-control-prev" href="#videoCarouselElement_{id}" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					</a>
+					<a class="carousel-control-next" href="#videoCarouselElement_{id}" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					</a>
+
 				</div>
 			</div>
 

@@ -92,7 +92,6 @@ const ELEMENT_CONFIG = {
 		`,
 		values: ["image_src"],
 		css_config: {
-			...COMMON_ELEMENT_CONFIG["font_size"],
 			...COMMON_ELEMENT_CONFIG["image_size"],
 		},
 	},

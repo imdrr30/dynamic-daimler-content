@@ -17,7 +17,7 @@ const INITIAL_STATE = {
 
 /**
  * This contains the common element configurations like the alignment,
- * font, size etc. This is used in the `ELEMENT_CONFIG` for making things dry.
+ * font, size etc. This is used in the `STATIC_ELEMENT_CONFIG` for making things dry.
  */
 const COMMON_ELEMENT_CONFIG = {
 	alignment: {
@@ -38,11 +38,10 @@ const COMMON_ELEMENT_CONFIG = {
 };
 
 /**
- * The main element/component configuration for the entire application.
- * This is used by the other functions for dynamically getting values from user
- * and to render the components on the page accordingly.
+ * The static element/component configuration for the entire application.
+ * This is not directly used anywhere. Used as a wrapper constant.
  */
-const ELEMENT_CONFIG = {
+const STATIC_ELEMENT_CONFIG = {
 	title_header: {
 		html: `
 		<div class="d-block element_config title_header {css_classes}">
@@ -200,11 +199,11 @@ function initEventListeners() {
 // ------------------------------------------------------- Called after other pre processing
 
 /**
- * This block initalizes the menu items defined by the `ELEMENT_CONFIG`.
+ * This block initalizes the menu items defined by the `STATIC_ELEMENT_CONFIG`.
  * Basically buttons rendered for the user to take actions.
  */
 let elements_menu_holder = $("#elements_menu_holder");
-$.each(ELEMENT_CONFIG, function (element_key, element_config) {
+$.each(STATIC_ELEMENT_CONFIG, function (element_key, element_config) {
 	let menu_button = $(
 		"<button type='button' class='btn btn-primary btn-lg elements_menu_button m-2'></button>"
 	).text(element_key);

@@ -131,67 +131,19 @@ function setAddElementState(element_code) {
  * To init the contents of the modal based on the data from the state.
  * This renders other dynamic fields as well.
  */
-// TODO: refactor later
 function initAddElementConfigModal() {
 	let input_data_container = $("#element_input_modal #element_input_form");
 
 	let add_element_config = state["add_element_config"];
-	let code = add_element_config["code"];
 	let text_input = add_element_config["values"];
 	let check_input = add_element_config["css_config"];
-
-	// if in case the element neeeds dynamic nature
-	if (["image_carousel"].includes(code)) {
-		let element_name = `${code}__count`; // temp data
-		let count_form_group = $("<div class='form-group'></div>")
-			.append($("<label>Count</label>"))
-			.append(
-				$("<input />")
-					.addClass("form-control text_input")
-					.attr("name", element_name)
-					.attr(
-						"value",
-						state["add_element_config"]["temp"][element_name] || 2
-					)
-					.attr("type", "number")
-					.attr("min", 2)
-					.attr("max", 6)
-					.on("change", function (e) {
-						let given_other_value = parseInt(e.target.value);
-
-						// reset state
-						resetAddElementConfig();
-						setAddElementState(code);
-
-						// update new state
-						for (
-							let index = 2;
-							index <= given_other_value;
-							index++
-						) {
-							state["add_element_config"]["values"][
-								`image_src_${index}`
-							] = "";
-						}
-
-						// update the count
-						state["add_element_config"]["temp"][
-							element_name
-						] = given_other_value;
-
-						// init the modal again
-						initAddElementConfigModal();
-					})
-			);
-		input_data_container.append(count_form_group);
-	}
 
 	// text input
 	$.each(text_input, function (input_name, input_value) {
 		let form_group = $("<div></div>").addClass("form-group");
 		form_group.append($("<label></label>").text(input_name));
 		form_group.append(
-			$("<input/>")
+			$("<textarea></textarea>")
 				.addClass("form-control text_input")
 				.attr("name", input_name)
 				.attr("value", input_value)
@@ -200,16 +152,8 @@ function initAddElementConfigModal() {
 		// if in case an image uploader is necessary
 		// add a button that helps upload and get the file url
 		if (
-			[
-				"image_src",
-				"file_src",
-				"image_src_1",
-				"image_src_2",
-				"image_src_3",
-				"image_src_4",
-				"image_src_5",
-				"image_src_6",
-			].includes(input_name)
+			input_name.includes("image_src") ||
+			input_name.includes("file_src")
 		) {
 			form_group.append(
 				$(
@@ -276,7 +220,6 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		$.each(saved_config["values"], function (data_name, data_value) {
 			html = html.replace(`{${data_name}}`, data_value);
 
-			// TODO: refactor later
 			// other custom elements | showing file source
 			if (["file_src"].includes(data_name)) {
 				html = html.replace(
@@ -295,7 +238,6 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 		});
 		html = html.replace(`{css_classes}`, css_class_string);
 
-		// TODO: refactor later
 		if (addModifyActions) {
 			// init the actions
 			let action_tab = $(

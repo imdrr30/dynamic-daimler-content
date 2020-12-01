@@ -110,9 +110,9 @@ const STATIC_ELEMENT_CONFIG = {
 			...COMMON_ELEMENT_CONFIG["alignment"],
 		},
 	},
-	image_carousel: {
+	image_carousel_2: {
 		html: `
-		<div class="d-block element_config image_carousel {css_classes}">
+		<div class="d-block element_config image_carousel image_carousel_2 {css_classes}">
 			<div id="carouselElement_{id}" class="carousel slide" data-ride="carousel">
 
 				<div class="carousel-inner">
@@ -135,6 +135,111 @@ const STATIC_ELEMENT_CONFIG = {
 		</div>
 		`,
 		values: ["image_src_1", "image_src_2"],
+		css_config: {},
+	},
+	image_carousel_3: {
+		html: `
+		<div class="d-block element_config image_carousel image_carousel_3 {css_classes}">
+			<div id="carouselElement_{id}" class="carousel slide" data-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="{image_src_1}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_2}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_3}">
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#carouselElement_{id}" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#carouselElement_{id}" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+		`,
+		values: ["image_src_1", "image_src_2", "image_src_3"],
+		css_config: {},
+	},
+	image_carousel_4: {
+		html: `
+		<div class="d-block element_config image_carousel image_carousel_4 {css_classes}">
+			<div id="carouselElement_{id}" class="carousel slide" data-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="{image_src_1}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_2}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_3}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_4}">
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#carouselElement_{id}" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#carouselElement_{id}" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+		`,
+		values: ["image_src_1", "image_src_2", "image_src_3", "image_src_4"],
+		css_config: {},
+	},
+	image_carousel_5: {
+		html: `
+		<div class="d-block element_config image_carousel image_carousel_5 {css_classes}">
+			<div id="carouselElement_{id}" class="carousel slide" data-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="{image_src_1}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_2}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_3}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_4}">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="{image_src_5}">
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#carouselElement_{id}" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#carouselElement_{id}" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+		`,
+		values: [
+			"image_src_1",
+			"image_src_2",
+			"image_src_3",
+			"image_src_4",
+			"image_src_5",
+		],
 		css_config: {},
 	},
 };

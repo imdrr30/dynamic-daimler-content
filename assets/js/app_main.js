@@ -242,6 +242,38 @@ const STATIC_ELEMENT_CONFIG = {
 		],
 		css_config: {},
 	},
+	footer_with_link_2: {
+		html: `
+		<div class="d-block element_config footer_with_link footer_with_link_2 {css_classes}">
+			<div class="row">
+				<div class="col-md-6" onclick="window.open('{link_1}', '_blank')">
+					<img class="image_content" src="{image_src_1}" />
+					<div class="main_fontent_wrapper">
+						<a>{link_text_1}</a>
+						<img src="./assets/images/arrow-right.png" />
+					</div>
+				</div>
+
+				<div class="col-md-6" onclick="window.open('{link_2}', '_blank')">
+					<img class="image_content" src="{image_src_2}" />
+					<div class="main_fontent_wrapper">
+						<a>{link_text_2}</a>
+						<img src="./assets/images/arrow-right.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+		`,
+		values: [
+			"link_1",
+			"link_text_1",
+			"image_src_1",
+			"link_2",
+			"link_text_2",
+			"image_src_2",
+		],
+		css_config: {},
+	},
 };
 
 /**

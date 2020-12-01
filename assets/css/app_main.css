@@ -54,3 +54,23 @@ body {
 .carousel .carousel-control-prev {
 	background: linear-gradient(90deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
 }
+
+/* footer_with_link */
+.footer_with_link .main_fontent_wrapper {
+	min-height: 50px;
+	background: #d5d8da;
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.footer_with_link .main_fontent_wrapper img {
+	max-width: 40px;
+}
+
+.footer_with_link .main_fontent_wrapper a {
+	margin: 0 !important;
+	color: #000000;
+	text-decoration: underline;
+}

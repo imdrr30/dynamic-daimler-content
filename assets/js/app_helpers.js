@@ -108,7 +108,7 @@ function setAddElementState(element_code) {
 	);
 
 	// get the element config
-	let input_element_config = STATIC_ELEMENT_CONFIG[element_code];
+	let input_element_config = getAllElementsConfig()[element_code];
 
 	// input values
 	$.each(input_element_config["values"], function (index, input_key) {
@@ -266,7 +266,7 @@ function renderSavedElements(jQueryElement, addModifyActions = true) {
 	// for each element in the data from the server
 	$.each(saved_elements_data, function (index, saved_config) {
 		let code = saved_config["code"];
-		let element_config = STATIC_ELEMENT_CONFIG[code];
+		let element_config = getAllElementsConfig()[code];
 		let html = element_config["html"];
 
 		// adding ID for dynamic content

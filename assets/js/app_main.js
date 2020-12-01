@@ -17,7 +17,7 @@ const INITIAL_STATE = {
 
 /**
  * This contains the common element configurations like the alignment,
- * font, size etc. This is used in the `STATIC_ELEMENT_CONFIG` for making things dry.
+ * font, size etc. This is used in the `getAllElementsConfig()` for making things dry.
  */
 const COMMON_ELEMENT_CONFIG = {
 	alignment: {
@@ -196,14 +196,22 @@ function initEventListeners() {
 	});
 }
 
+/**
+ * This function returns all the generated & static elements configuration
+ * in the application. This is used everywhere in the app.
+ */
+function getAllElementsConfig() {
+	return STATIC_ELEMENT_CONFIG;
+}
+
 // ------------------------------------------------------- Called after other pre processing
 
 /**
- * This block initalizes the menu items defined by the `STATIC_ELEMENT_CONFIG`.
+ * This block initalizes the menu items defined by the `getAllElementsConfig()`.
  * Basically buttons rendered for the user to take actions.
  */
 let elements_menu_holder = $("#elements_menu_holder");
-$.each(STATIC_ELEMENT_CONFIG, function (element_key, element_config) {
+$.each(getAllElementsConfig(), function (element_key, element_config) {
 	let menu_button = $(
 		"<button type='button' class='btn btn-primary btn-lg elements_menu_button m-2'></button>"
 	).text(element_key);

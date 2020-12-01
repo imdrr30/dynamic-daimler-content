@@ -143,10 +143,10 @@ function initAddElementConfigModal() {
 		let form_group = $("<div></div>").addClass("form-group");
 		form_group.append($("<label></label>").text(input_name));
 		form_group.append(
-			$("<textarea></textarea>")
+			$("<textarea>"+input_value+"</textarea>")
 				.addClass("form-control text_input")
 				.attr("name", input_name)
-				.attr("value", input_value)
+				//.attr("value", input_value)
 		);
 
 		// if in case an image uploader is necessary

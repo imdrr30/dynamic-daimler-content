@@ -98,7 +98,7 @@ const STATIC_ELEMENT_CONFIG = {
 		html: `
 		<div class="d-block element_config single_file {css_classes}">
 			<div class="single_file_container bg-light">
-				<img src="./assets/images/file.png" />
+				<img src="/assets/images/file.png" />
 				<a target='_blank' href="{file_src}">
 					{file_src_name}
 				</a>
@@ -250,7 +250,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_1}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_1}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 
@@ -258,7 +258,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_2}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_2}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 			</div>
@@ -282,7 +282,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_1}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_1}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 
@@ -290,7 +290,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_2}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_2}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 
@@ -298,7 +298,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_3}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_3}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 			</div>
@@ -325,7 +325,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_1}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_1}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 
@@ -333,7 +333,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_2}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_2}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 
@@ -341,7 +341,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_3}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_3}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 
@@ -349,7 +349,7 @@ const STATIC_ELEMENT_CONFIG = {
 					<img class="image_content" src="{image_src_4}" />
 					<div class="main_fontent_wrapper">
 						<a>{link_text_4}</a>
-						<img src="./assets/images/arrow-right.png" />
+						<img src="/assets/images/arrow-right.png" />
 					</div>
 				</div>
 			</div>

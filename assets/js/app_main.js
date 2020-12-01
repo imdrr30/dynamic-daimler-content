@@ -371,6 +371,69 @@ const STATIC_ELEMENT_CONFIG = {
 		],
 		css_config: {},
 	},
+	video_iframe_3: {
+		html: `
+		<div class="d-block element_config video_iframe video_iframe_3 {css_classes}">
+			<div id="videoCarouselElement_{id}" class="carousel slide" data-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<iframe src="{link_1}"></iframe>
+					</div>
+					<div class="carousel-item">
+						<iframe src="{link_2}"></iframe>
+					</div>
+					<div class="carousel-item">
+						<iframe src="{link_3}"></iframe>
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#videoCarouselElement_{id}" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#videoCarouselElement_{id}" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+		`,
+		values: ["link_1", "link_2", "link_3"],
+		css_config: {},
+	},
+	video_iframe_4: {
+		html: `
+		<div class="d-block element_config video_iframe video_iframe_4 {css_classes}">
+			<div id="videoCarouselElement_{id}" class="carousel slide" data-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<iframe src="{link_1}"></iframe>
+					</div>
+					<div class="carousel-item">
+						<iframe src="{link_2}"></iframe>
+					</div>
+					<div class="carousel-item">
+						<iframe src="{link_3}"></iframe>
+					</div>
+					<div class="carousel-item">
+						<iframe src="{link_4}"></iframe>
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#videoCarouselElement_{id}" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#videoCarouselElement_{id}" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+		`,
+		values: ["link_1", "link_2", "link_3", "link_4"],
+		css_config: {},
+	},
 };
 
 /**

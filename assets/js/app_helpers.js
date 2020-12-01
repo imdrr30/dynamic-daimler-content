@@ -169,7 +169,7 @@ function initAddElementConfigModal() {
 							"POST",
 							true,
 							function (result) {
-								$(`input[name='${input_name}']`)[0].value =
+								$(`textarea[name='${input_name}']`)[0].value =
 									result["file"];
 							}
 						);
